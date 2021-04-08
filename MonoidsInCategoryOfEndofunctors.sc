@@ -1,5 +1,3 @@
-import coursier.bootstrap.launcher.o
-
 
 // "monoid in the category of T[_]
 trait MonoidInCategoryK2[T[_], ~>[_[_], _[_]], U[_], P[_]] {
