@@ -10,13 +10,18 @@ import io.circe.ACursor
 import java.util.concurrent.TimeUnit.MINUTES
 
 
-val y = HCursor.fromJson(
-    Json.fromJsonObject(
-        JsonObject.fromMap(
+val json = Json.fromJsonObject(JsonObject.fromMap(
                 Map("hello" -> Json.fromInt(5), "world" -> Json.fromInt(10))
             )
         )
-)
+
+
+println(json)
+
+val y = json.hcursor
+
+val getField = y.get[Int]("world")
+println(getField)
 
 val downfield = y.downField("hello").as[Int]
 
