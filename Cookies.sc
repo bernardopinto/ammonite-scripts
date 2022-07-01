@@ -17,8 +17,8 @@ import sttp.capabilities.fs2.Fs2Streams
 import sttp.client3.http4s._
 
 
-val validCookie = "valid-cookie=276848643;Path=/;Domain=.testdomain.com;Expires=Sat, 28 Jun 2025 16:04:41 GMT;Max-Age=94608000;Secure"
-val invalidCookie = "invalid-cookie=276848643;Path=/;Domain=.testdomain.com;Expires=Sat, 28-Jun-2025 16:04:41 GMT;Max-Age=94608000;Secure"
+val validCookie = "valid-cookie=abc;Path=/;Expires=Sat, 28 Jun 2025 16:04:41 GMT"
+val invalidCookie = "invalid-cookie=abc;Path=/;Expires=Sat, 28-Jun-2025 16:04:41 GMT"
 val responseHeaders = Headers(List(Header.Raw(`Set-Cookie`.name, validCookie), Header.Raw(`Set-Cookie`.name, invalidCookie)))
 
 val testCookiesService = HttpRoutes.of[IO] {
