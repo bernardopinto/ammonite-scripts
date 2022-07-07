@@ -87,6 +87,21 @@ def combine[F[_, _]: Arrow, A, B, C](fab: F[A, B], fac: F[A, C]): F[A, (B, C)] =
 // val mean: List[Int] => Double =
 
 
+// Apply
+
+import cats.syntax.apply._
+
+
+final case class Person(name: String, surname: String, dateOfBirth: String)
+  val maybeIdpGender = Option("name")
+  val maybeIdpDateOfBirth: Option[String] = Option.empty
+  val maybeIdpDateOfBirthSource = Option("date-of-birth")
+
+  val personMaybe = (maybeIdpGender, maybeIdpDateOfBirth, maybeIdpDateOfBirthSource).mapN{ case (a, b, c) => Person(a, b, c)}
+
+  println(personMaybe)
+
+
 
 @main
 def newMain() = {
